@@ -6,7 +6,10 @@ interface ConfirmTripModalProps {
   createTrip: (e: FormEvent<HTMLFormElement>) => void
 }
 
-export function ConfirmTripModal({closeConfirmTripModal, createTrip}: ConfirmTripModalProps) {
+export function ConfirmTripModal({
+  closeConfirmTripModal,
+  createTrip,
+}: ConfirmTripModalProps) {
   return (
     <div className="h-screen bg-black/60 flex flex-col items-center justify-center fixed inset-0">
       <div className="bg-zinc-900 text-zinc-50 w-[640px] rounded-xl py-5 px-6 shadow-shape space-y-5">

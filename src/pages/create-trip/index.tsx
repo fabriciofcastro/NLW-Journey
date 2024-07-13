@@ -2,7 +2,7 @@ import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import logo from '../../../public/logo.svg'
 import { DestinationAndDateStep } from '../steps/destination-and-date-step'
-import { ConfirmTripModal } from './confim-tripmodal'
+import { ConfirmTripModal } from './confim-trip-modal'
 import { InviteGuestsModal } from './invite-guests-modal'
 import { InviteGuestsStep } from '../steps/invete-guests-step'
 

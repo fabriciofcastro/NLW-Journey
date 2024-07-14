@@ -2,21 +2,17 @@ import {
   Calendar,
   CircleCheck,
   CircleDotDashed,
-  Clock,
-  DoorClosedIcon,
   Link2,
-  Mail,
   MapPin,
   Plus,
   ReplaceAll,
-  Save,
   Settings2,
-  Tag,
   UserCog,
 } from 'lucide-react'
 import { useState } from 'react'
 import { ButtonDefault } from '../../components/buttons/ButtonDefault'
 import { ButtonZinc } from '../../components/buttons/ButtonZinc'
+import { CreateActivityModal } from './create-activity-modal'
 
 export function TripDetailsPage() {
   const [isCreateActiveModalOpen, setIsCreateActiveModalOpen] = useState(
@@ -27,7 +23,7 @@ export function TripDetailsPage() {
     setIsCreateActiveModalOpen(() => true)
   }
 
-  function closeCreateActiveMOdal() {
+  function closeCreateActiveModal() {
     setIsCreateActiveModalOpen(false)
   }
 
@@ -44,7 +40,7 @@ export function TripDetailsPage() {
             <span className="text-zinc-100"> 17 a 23 de Agosto </span>
           </div>
           <div className="h-6 w-px bg-zinc-800" />
-          <ButtonZinc text="local/data" Icon={ Settings2 } />
+          <ButtonZinc text="local/data" Icon={Settings2} />
         </div>
       </header>
       <main className="flex gap-16 px-4">
@@ -127,7 +123,7 @@ export function TripDetailsPage() {
                 <Link2 className="text-zinc-400 size-5" />
               </div>
             </div>
-            <ButtonZinc text="Cadastrar no link" Icon={ Plus } width="full" />
+            <ButtonZinc text="Cadastrar no link" Icon={Plus} width="full" />
           </div>
           <div className="w-full h-px bg-zinc-800" />
           <div>
@@ -159,68 +155,15 @@ export function TripDetailsPage() {
               </div>
               <ButtonZinc
                 text="gerenciar convidados"
-                Icon={ UserCog }
+                Icon={UserCog}
                 width="full"
               />
             </div>
           </div>
         </div>
       </main>
-      { isCreateActiveModalOpen && (
-        <div className="h-screen bg-black/60 flex flex-col items-center justify-center fixed inset-0">
-          <div className="bg-zinc-900 text-zinc-50 w-[640px] rounded-xl py-5 px-6 shadow-shape space-y-5">
-            <div className="space-y-2">
-              <div className="flex justify-between items-center">
-                <h2 className="text-lg font-semibold">
-                  Cadatrar atividades
-                </h2>
-                <button
-                  onClick={ closeCreateActiveMOdal }
-                  type="button"
-                  className="flex gap-2.5  py-1.5 px-2 rounded-lg bg-lime-300 hover:bg-lime-400 transition-colors duration-200"
-                >
-                  <DoorClosedIcon className=" text-zinc-900" />
-                </button>
-              </div>
-              <p className="text-sm text-zinc-400">
-                Todos convidados podem visualizar as atividades
-              </p>
-            </div>
-            <div className="h-px w-full bg-zinc-50 opacity-5" />
-            <form className="space-y-2">
-              <div className="flex items-center justify-between gap-2.5  bg-zinc-950 rounded-lg py-2.5 px-4 shadow-shape">
-                <Tag className="size-5" />
-                <input
-                  className="bg-transparent flex-1 outline-none"
-                  type="text"
-                  placeholder="Qual a atividade?"
-                  name="title"
-                />
-              </div>
-              <div className="flex items-center gap-2">
-              <div className="flex items-center justify-between gap-2.5  bg-zinc-950 rounded-lg py-2.5 px-4 shadow-shape flex-1">
-                  <Calendar className="size-5" />
-                  <input
-                    className="bg-transparent flex-1 outline-none"
-                    type="email"
-                    placeholder="20 de Agosto"
-                    name="calendar"
-                  />
-                </div>
-                <div className="flex items-center justify-between gap-2.5  bg-zinc-950 rounded-lg py-2.5 px-4 shadow-shape w-36">
-                  <Clock className="size-5" />
-                  <input
-                    className="bg-transparent flex-1 outline-none"
-                    type="email"
-                    placeholder="Horário"
-                    name="clock"
-                  />
-                </div>
-              </div>
-              <ButtonDefault text="Salva atividade" Icon={Save} />
-            </form>
-          </div>
-        </div>
+      {isCreateActiveModalOpen && (
+        <CreateActivityModal closeCreateActiveModal={closeCreateActiveModal} />
       ) }
     </div>
   )

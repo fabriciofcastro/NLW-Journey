@@ -1,5 +1,6 @@
 import { DoorClosedIcon, Mail, User2 } from 'lucide-react'
 import { FormEvent } from 'react'
+import { Button } from '../../components/buttons/Button'
 
 interface ConfirmTripModalProps {
   closeConfirmTripModal: () => void
@@ -18,13 +19,9 @@ export function ConfirmTripModal({
             <h2 className="text-lg font-semibold">
               Confirmar criação da viagem
             </h2>
-            <button
-              onClick={closeConfirmTripModal}
-              type="button"
-              className="flex gap-2.5  py-1.5 px-2 rounded-lg bg-lime-300 hover:bg-lime-400 transition-colors duration-200"
-            >
+            <Button variant="primary" onClick={ closeConfirmTripModal }>
               <DoorClosedIcon className=" text-zinc-900" />
-            </button>
+            </Button>
           </div>
           <p className="text-sm text-zinc-400">
             Para concluir a criação da viagem para
@@ -58,12 +55,7 @@ export function ConfirmTripModal({
               name="email"
             />
           </div>
-          <button
-            type="submit"
-            className="bg-lime-300 text-lime-950 flex rounded-lg font-semibold py-2 px-5 gap-2 items-center justify-center w-full"
-          >
-            Confirmar criação da viagem
-          </button>
+          <Button type="submit" size="full">Confirmar criação da viagem</Button>
         </form>
       </div>
     </div>

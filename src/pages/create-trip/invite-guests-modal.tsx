@@ -1,5 +1,6 @@
 import { AtSign, CirclePlus, DoorClosedIcon, X } from 'lucide-react'
 import { FormEvent } from 'react'
+import { Button } from '../../components/buttons/Button'
 
 interface InviteGuetsModalProps {
   closeGuestsModal: () => void
@@ -20,13 +21,9 @@ export function InviteGuestsModal({
         <div className="space-y-2">
           <div className="flex justify-between items-center">
             <h2 className="text-lg font-semibold">Selecionar convidados</h2>
-            <button
-              onClick={closeGuestsModal}
-              type="button"
-              className="flex gap-2.5  py-1.5 px-2 rounded-lg bg-lime-300 hover:bg-lime-400 transition-colors duration-200"
-            >
+            <Button onClick={closeGuestsModal}>
               <DoorClosedIcon className=" text-zinc-900" />
-            </button>
+            </Button>
           </div>
           <p className="text-sm text-zinc-400">
             Os convidados irão receber e-mails para confirmar a participação na
@@ -67,13 +64,10 @@ export function InviteGuestsModal({
               name="email"
             />
           </div>
-          <button
-            type="submit"
-            className="bg-lime-300 text-lime-950 flex rounded-lg font-semibold py-2 px-5 gap-2 flex items-center"
-          >
+          <Button>
             Convidar
             <CirclePlus className="size-5" />
-          </button>
+          </Button>
         </form>
       </div>
     </div>

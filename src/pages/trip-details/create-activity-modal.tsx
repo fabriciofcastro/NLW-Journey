@@ -1,5 +1,5 @@
 import { Calendar, DoorClosedIcon, Save, Tag } from 'lucide-react'
-import { ButtonDefault } from '../../components/buttons/ButtonDefault'
+import { Button } from '../../components/buttons/Button'
 
 interface CreateActivityModalProps {
   closeCreateActiveModal: () => void
@@ -13,14 +13,10 @@ export function CreateActivityModal({
       <div className="bg-zinc-900 text-zinc-50 w-[640px] rounded-xl py-5 px-6 shadow-shape space-y-5">
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <h2 className="text-lg font-semibold">Cadatrar atividades</h2>
-            <button
-              onClick={closeCreateActiveModal}
-              type="button"
-              className="flex gap-2.5  py-1.5 px-2 rounded-lg bg-lime-300 hover:bg-lime-400 transition-colors duration-200"
-            >
+            <h2 className="text-lg font-semibold">Cadastrar atividades</h2>
+            <Button variant="primary" onClick={closeCreateActiveModal}>
               <DoorClosedIcon className=" text-zinc-900" />
-            </button>
+            </Button>
           </div>
           <p className="text-sm text-zinc-400">
             Todos convidados podem visualizar as atividades
@@ -48,7 +44,10 @@ export function CreateActivityModal({
               />
             </div>
           </div>
-          <ButtonDefault text="Salva atividade" Icon={Save} />
+          <Button variant="primary" size="full">
+            Salva atividade
+            <Save />
+          </Button>
         </form>
       </div>
     </div>
